@@ -7,6 +7,7 @@ import com.tmps.project.model.builder.BasicTripBuilder;
 import com.tmps.project.model.singleton.Moldova;
 import com.tmps.project.model.singleton.Romania;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.List;
 
@@ -22,14 +23,15 @@ public class TripService implements Service<Trip, Long> {
     }
 
     @Override
+    @ModelAttribute("trip")
     public Trip getById(Long id) {
-        return repository.findById(id).get();
+        return repository.getById(id);
     }
 
     @Override
     public Trip create(Trip request) {
-        Country country = null;
-        switch (request.getCountry().getCity()) {
+        Country country;
+        switch (request.getCountry().getName()) {
             case "Moldova":
                 country = Moldova.getInstance();
                 break;
@@ -42,6 +44,7 @@ public class TripService implements Service<Trip, Long> {
 
         BasicTripBuilder tripBuilder = new BasicTripBuilder();
         Trip trip = tripBuilder.setPrice(request.getPrice())
+                .setName(request.getName())
                 .setDescription(request.getDescription())
                 .setHotel(request.getHotel())
                 .setMaxPersons(request.getAvailablePlaces())

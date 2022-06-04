@@ -11,9 +11,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="trip">
-            <img src="https://cdn-icons.flaticon.com/png/512/2200/premium/2200326.png?token=exp=1654271621~hmac=fc2a4bb11bd8921739bf7ea108534edd"
-                 alt="logo" width="40" height="34" class="d-inline-block align-text-top">
+        <a class="navbar-brand" th:href="trip">
+            <img src="https://cdn-icons.flaticon.com/png/512/2200/premium/2200326.png?token=exp=1654271621~hmac=fc2a4bb11bd8921739bf7ea108534edd" alt="logo" width="40" height="34" class="d-inline-block align-text-top">
             Travel & Enjoy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,60 +47,14 @@
         </div>
     </div>
 </nav>
-
 <div class="container-fluid">
-    <!-- Jumbotron -->
-<!--    <div-->
-<!--            class="bg-image text-center shadow-1-strong rounded mb-3 text-white"-->
-<!--            style="background-image: url('https://media.cntraveler.com/photos/581250f2997d59497dccf8bc/16:9/w_2560%2Cc_limit/GettyImages-185298837.jpg');-->
-<!--    max-width: 100%;-->
-<!--    max-height: 100%;"-->
-<!--    >-->
-<!--        <h1 class="mb-3 h2">Travel with us!</h1>-->
-
-<!--        <p>-->
-<!--            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium-->
-<!--            labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum-->
-<!--            neque maiores dolorem unde? Aut dolorum quod excepturi fugit.-->
-<!--        </p>-->
-<!--    </div>-->
-    <!-- Jumbotron -->
-
-<!--    <div id="headerwrap" style="background: url(https://techcrunch.com/wp-content/uploads/2021/12/FF8DDkpWYAAJc3Y.jpeg);-->
-<!--	margin-top: -70px;-->
-<!--	padding-top: 250px;-->
-<!--	text-align:center;-->
-<!--	background-attachment: relative;-->
-<!--	background-position: center center;-->
-<!--	min-height: 550px;-->
-<!--	width: 100%;-->
-<!--  opacity: 0.98;">-->
-<!--        <div class="container">-->
-<!--            <h1> Travel with us!</h1>-->
-<!--        </div>-->
-<!--    </div>-->
+    <img src="https://mediaim.expedia.com/destination/1/de8df0d360f053d02d7fb41618b95bf8.jpg?impolicy=fcrop&w=536&h=384&q=high" class="img-fluid" alt="Responsive image">
+    <h1 th:text="${trip.name}">
+    </h1>
+    <h2 th:text="${trip.description}">
+    </h2>
 
 
-    <div class="container">
-        <div class="row">
-            <h1>Trips</h1>
-        </div>
-
-        <div class="col-md-4 col-6 col-lg-3 mt-4 col"
-             style="margin: 0;display: flex;width: fit-content;flex-direction: row;">
-            <div class="card" th:each="trip: ${trips}">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://mediaim.expedia.com/destination/1/de8df0d360f053d02d7fb41618b95bf8.jpg?impolicy=fcrop&w=536&h=384&q=high"
-                         class="card-img-top" alt="moldova">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${trip.description}">${trip.description}</h5>
-                        <p class="card-text" th:text="${trip.price}"></p>
-                        <a class="btn btn-primary" th:href="@{/trip/{id}(id=${trip.id})}">More details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 

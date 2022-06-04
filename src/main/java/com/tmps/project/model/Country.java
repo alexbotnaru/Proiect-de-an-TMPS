@@ -9,19 +9,20 @@ import javax.persistence.*;
 @Entity
 @Table
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Country {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id")
     private Long id;
     @Column(nullable = false)
-    private String city;
+    private String name;
     @Column(nullable = false)
     private String currency;
 
-    public Country(String city, String currency) {
-        this.city = city;
+    public Country(Long id, String name, String currency) {
+        this.id = id;
+        this.name = name;
         this.currency = currency;
     }
 }

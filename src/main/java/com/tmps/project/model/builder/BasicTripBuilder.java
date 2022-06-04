@@ -56,7 +56,7 @@ public class BasicTripBuilder implements TripBuilder {
     }
 
     public Trip build(){
-        return new Trip(price, nrOfDays, hotel, maxPersons, description, country);
+        return new Trip(name, price, nrOfDays,description, hotel, maxPersons, country);
     }
 
 }

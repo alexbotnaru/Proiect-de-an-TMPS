@@ -1,13 +1,8 @@
 package com.tmps.project.model;
 
-import com.tmps.project.model.singleton.Moldova;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "hotel")
@@ -16,9 +11,11 @@ public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "hotel_id")
     private Long id;
 
     private String name;
-    private String location;
+    private String city;
+    private Integer nrStars;
 
 }
