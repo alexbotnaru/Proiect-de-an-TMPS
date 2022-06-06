@@ -27,18 +27,14 @@ public class HotelService implements Service<Hotel, Long> {
         return hotelRepository.save(hotel);
     }
 
-    @Override
-    public Hotel updateById(Long aLong, Hotel hotel) {
-        return null;
-    }
 
     @Override
-    public void deleteById(Long aLong) {
-
+    public void deleteById(Long id) {
+        hotelRepository.deleteById(id);
     }
 
-    @Override
-    public void verifyEntityById(Long aLong) {
-
+    public Hotel getByName(String name){
+        return hotelRepository.findHotelByName(name).orElseThrow(() -> new RuntimeException("No such hotel"));
     }
+
 }

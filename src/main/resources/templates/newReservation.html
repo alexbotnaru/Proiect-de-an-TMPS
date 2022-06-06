@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Trips</title>
@@ -7,86 +7,94 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 </head>
-<style>
-    html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        font-family: 'Roboto', sans-serif;
-    }
+<!--<style>-->
+<!--    html, body {-->
+<!--        height: 100%;-->
+<!--        width: 100%;-->
+<!--        margin: 0;-->
+<!--        font-family: 'Roboto', sans-serif;-->
+<!--    }-->
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 15px;
-        display: flex;
-    }
-    .left-column {
-        width: 65%;
-        position: relative;
-    }
+<!--    .container {-->
+<!--        max-width: 1200px;-->
+<!--        margin: 0 auto;-->
+<!--        padding: 15px;-->
+<!--        display: flex;-->
+<!--    }-->
 
-    .right-column {
-        margin-left: 20px;
-        width: 35%;
-        margin-top: 60px;
-    }
-    .left-column img {
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: all 0.3s ease;
-    }
-    .product-description {
-        border-bottom: 1px solid #E1E8EE;
-        margin-bottom: 20px;
-    }
-    .product-description span {
-        font-size: 12px;
-        color: #358ED7;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-    .product-description h1 {
-        font-weight: 300;
-        font-size: 52px;
-        color: #43484D;
-        letter-spacing: -2px;
-    }
-    .product-description p {
-        font-size: 16px;
-        font-weight: 300;
-        color: #86939E;
-        line-height: 24px;
-    }
-    .product-price {
-        display: flex;
-        align-items: center;
-    }
+<!--    .left-column {-->
+<!--        width: 65%;-->
+<!--        position: relative;-->
+<!--    }-->
 
-    .product-price span {
-        font-size: 26px;
-        font-weight: 300;
-        color: #43474D;
-        margin-right: 20px;
-    }
+<!--    .right-column {-->
+<!--        margin-left: 20px;-->
+<!--        width: 35%;-->
+<!--        margin-top: 60px;-->
+<!--    }-->
 
-    .cart-btn {
-        display: inline-block;
-        background-color: #7DC855;
-        border-radius: 6px;
-        font-size: 16px;
-        color: #FFFFFF;
-        text-decoration: none;
-        padding: 12px 30px;
-        transition: all .5s;
-    }
-    .cart-btn:hover {
-        background-color: #64af3d;
-    }
-</style>
+<!--    .left-column img {-->
+<!--        width: 100%;-->
+<!--        position: absolute;-->
+<!--        left: 0;-->
+<!--        top: 0;-->
+<!--        transition: all 0.3s ease;-->
+<!--    }-->
+
+<!--    .product-description {-->
+<!--        border-bottom: 1px solid #E1E8EE;-->
+<!--        margin-bottom: 20px;-->
+<!--    }-->
+
+<!--    .product-description span {-->
+<!--        font-size: 12px;-->
+<!--        color: #358ED7;-->
+<!--        letter-spacing: 1px;-->
+<!--        text-transform: uppercase;-->
+<!--        text-decoration: none;-->
+<!--    }-->
+
+<!--    .product-description h1 {-->
+<!--        font-weight: 300;-->
+<!--        font-size: 52px;-->
+<!--        color: #43484D;-->
+<!--        letter-spacing: -2px;-->
+<!--    }-->
+
+<!--    .product-description p {-->
+<!--        font-size: 16px;-->
+<!--        font-weight: 300;-->
+<!--        color: #86939E;-->
+<!--        line-height: 24px;-->
+<!--    }-->
+
+<!--    .product-price {-->
+<!--        display: flex;-->
+<!--        align-items: center;-->
+<!--    }-->
+
+<!--    .product-price span {-->
+<!--        font-size: 26px;-->
+<!--        font-weight: 300;-->
+<!--        color: #43474D;-->
+<!--        margin-right: 20px;-->
+<!--    }-->
+
+<!--    .cart-btn {-->
+<!--        display: inline-block;-->
+<!--        background-color: #7DC855;-->
+<!--        border-radius: 6px;-->
+<!--        font-size: 16px;-->
+<!--        color: #FFFFFF;-->
+<!--        text-decoration: none;-->
+<!--        padding: 12px 30px;-->
+<!--        transition: all .5s;-->
+<!--    }-->
+
+<!--    .cart-btn:hover {-->
+<!--        background-color: #64af3d;-->
+<!--    }-->
+<!--</style>-->
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -140,48 +148,34 @@
 <!--    </h1>-->
 <!--    <h2 th:text="${trip.description}">-->
 <!--    </h2>-->
-<main class="container">
-    <div class="left-column">
-        <img th:src="@{${trip.image.imageUrl}}" class="img-fluid" alt="Responsive image">
+
+<div class="container mt-3">
+
+    <div class="row">
+<h1>Hello <b th:text="${reservation.user.name}"></b></h1>
+<h2>Please confirm your reservation</h2>
+
     </div>
-
-    <div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-            <h1 th:text="${trip.name}"></h1>
-            <p th:text="${trip.description}"></p>
-            Country:
-            <h3 th:text="${trip.country.name}"></h3>
-            Housing:
-            <h4 th:text="${trip.hotel.city}"></h4>
-            Local Currency:
-            <h4 th:text="${trip.country.currency}"></h4>
-        </div>
-
-        <!-- Product Configuration -->
-        <div class="product-configuration">
-
-            <!-- Product Color -->
-            <div class="product-color">
-                Available places:
-                <span th:text="${trip.availablePlaces}"> </span>
-
-            </div>
-
-        </div>
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-            <span>$</span>
-            <span th:text="${trip.price}"></span>
-            <a th:href="@{/trip/reserve/{tripId}(tripId=${trip.id})}" class="cart-btn">Reserve trip</a>
-        </div>
-    </div>
-
-</main>
-
-
+</div>
+<br>
+<div class="container">
+    <h4>Trip name</h4>
+        <b th:text="${reservation.trip.name}" ></b>
+<!--    <img th:src="@{${reservation.trip.image.imageUrl}}" class="img-fluid" alt="Responsive image">-->
+    <br>
+    <h4>Price:</h4>
+    <b th:text="${reservation.trip.price}"> </b><b> $ </b>
+</div>
+<br>
+<div class="container">
+<h6>Reservation Status:  </h6>
+<b th:text="${reservation.reservationState.getStatus()}"></b>
+</div>
+<br>
+</div>
+<div class="container">
+    <a class="btn btn-success" th:href="@{/reservation/confirm/{id}(id=${reservation.reservationId})}">Confirm</a>
+    <a class="btn btn-primary" th:href="@{/trip}">Back</a>
 </div>
 
 

@@ -1,9 +1,7 @@
 package com.tmps.project.controller.api;
 
 import com.tmps.project.model.Hotel;
-import com.tmps.project.model.Trip;
 import com.tmps.project.service.HotelService;
-import com.tmps.project.service.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/hotel")
 @RequiredArgsConstructor
-public class HotelController {
+public class HotelApiController {
 
     private final HotelService hotelService;
 

@@ -13,9 +13,10 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "hotel_id")
     private Long id;
-
     private String name;
     private String city;
     private Integer nrStars;
+    @OneToOne
+    private Image image;
 
 }

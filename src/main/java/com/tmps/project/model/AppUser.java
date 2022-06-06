@@ -3,6 +3,8 @@ package com.tmps.project.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,8 +13,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode
@@ -28,10 +32,14 @@ public class AppUser implements UserDetails {
     @Email
     @Column(unique = true, nullable = false)
     private String email;
-//    @Length(min = 3, max = 22)
+    //    @Length(min = 3, max = 22)
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole role;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @Fetch(value = FetchMode.SUBSELECT)
+//    private List<Reservation> reservations = new ArrayList<>();
 
     public AppUser(String name, String email, String password, AppUserRole role) {
         this.name = name;

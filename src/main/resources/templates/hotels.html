@@ -6,7 +6,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-
 </head>
 <style>
     .card-img-top {
@@ -63,24 +62,53 @@
 </nav>
 
 <div class="container-fluid">
+    <!-- Jumbotron -->
+<!--    <div-->
+<!--            class="bg-image text-center shadow-1-strong rounded mb-3 text-white"-->
+<!--            style="background-image: url('https://media.cntraveler.com/photos/581250f2997d59497dccf8bc/16:9/w_2560%2Cc_limit/GettyImages-185298837.jpg');-->
+<!--    max-width: 100%;-->
+<!--    max-height: 100%;"-->
+<!--    >-->
+<!--        <h1 class="mb-3 h2">Travel with us!</h1>-->
+
+<!--        <p>-->
+<!--            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium-->
+<!--            labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum-->
+<!--            neque maiores dolorem unde? Aut dolorum quod excepturi fugit.-->
+<!--        </p>-->
+<!--    </div>-->
+    <!-- Jumbotron -->
+
+<!--    <div id="headerwrap" style="background: url(https://techcrunch.com/wp-content/uploads/2021/12/FF8DDkpWYAAJc3Y.jpeg);-->
+<!--	margin-top: -70px;-->
+<!--	padding-top: 250px;-->
+<!--	text-align:center;-->
+<!--	background-attachment: relative;-->
+<!--	background-position: center center;-->
+<!--	min-height: 550px;-->
+<!--	width: 100%;-->
+<!--  opacity: 0.98;">-->
+<!--        <div class="container">-->
+<!--            <h1> Travel with us!</h1>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
-    <div class="container-xl">
+    <div class="container">
         <div class="row">
-            <h1>Trips</h1>
+            <h1>Available hotels</h1>
         </div>
 
         <div class="col-md-4 col-6 col-lg-3 mt-4 col"
-             style="margin: 0;display: flex;width: fit-content;flex-direction: row; height: available">
-            <div class="card" th:each="trip: ${trips}">
+             style="margin: 0;display: flex;width: fit-content;flex-direction: row;">
+            <div class="card" th:each="hotel: ${hotels}">
                 <div class="card" style="width: 18rem;">
-                    <img th:src="@{${trip.image.imageUrl}}"
+                    <img th:src="@{${hotel.image.imageUrl}}"
                          class="card-img-top" alt="moldova">
                     <div class="card-body">
-
-                        <h5 class="card-title" th:text="${trip.name}"></h5>
-                        <b class="cart-text" th:text="${trip.price}"></b><b> $ </b><br>
-                        <a class="btn btn-primary" th:href="@{/trip/{id}(id=${trip.id})}">More details</a>
+                        <h5 class="card-title" th:text="${hotel.name}"></h5>
+                        <p class="card-text" th:text="${hotel.city}"></p>
+                        <a class="btn btn-primary" th:href="@{/hotel/{id}(id=${hotel.id})}">More details</a>
                     </div>
                 </div>
             </div>

@@ -8,12 +8,7 @@
 
 
 </head>
-<style>
-    .card-img-top {
-        width: 100%;
-        height: 180px;
-    }
-</style>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -62,30 +57,13 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid mt-5 d-flex justify-content-center">
 
-
-    <div class="container-xl">
-        <div class="row">
-            <h1>Trips</h1>
-        </div>
-
-        <div class="col-md-4 col-6 col-lg-3 mt-4 col"
-             style="margin: 0;display: flex;width: fit-content;flex-direction: row; height: available">
-            <div class="card" th:each="trip: ${trips}">
-                <div class="card" style="width: 18rem;">
-                    <img th:src="@{${trip.image.imageUrl}}"
-                         class="card-img-top" alt="moldova">
-                    <div class="card-body">
-
-                        <h5 class="card-title" th:text="${trip.name}"></h5>
-                        <b class="cart-text" th:text="${trip.price}"></b><b> $ </b><br>
-                        <a class="btn btn-primary" th:href="@{/trip/{id}(id=${trip.id})}">More details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h1>Reservation Confirmed!</h1>
+        </br>
+</div>
+<div class="container d-flex justify-content-center">
+<a class="btn btn-primary " th:href="@{/reservation}">Show reservations</a>
 </div>
 
 

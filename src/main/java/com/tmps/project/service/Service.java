@@ -9,10 +9,7 @@ public interface Service<T, ID> {
 
     T create(T t);
 
-    T updateById(ID id, T t);
-
     void deleteById(ID id);
 
-    void verifyEntityById(ID id);
 
 }

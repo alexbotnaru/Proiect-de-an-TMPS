@@ -2,6 +2,7 @@ package com.tmps.project.model.builder;
 
 import com.tmps.project.model.Country;
 import com.tmps.project.model.Hotel;
+import com.tmps.project.model.Image;
 import com.tmps.project.model.Trip;
 
 public class BasicTripBuilder implements TripBuilder {
@@ -12,6 +13,7 @@ public class BasicTripBuilder implements TripBuilder {
     private Integer maxPersons;
     private String description;
     private Country country;
+    private Image image;
 
     @Override
     public TripBuilder setPrice(Double price) {
@@ -52,6 +54,12 @@ public class BasicTripBuilder implements TripBuilder {
     @Override
     public TripBuilder setCountry(Country country) {
         this.country = country;
+        return this;
+    }
+
+    @Override
+    public TripBuilder setImage(Image image) {
+        this.image = image;
         return this;
     }
 

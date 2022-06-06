@@ -6,14 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-
 </head>
-<style>
-    .card-img-top {
-        width: 100%;
-        height: 180px;
-    }
-</style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -61,31 +54,14 @@
         </div>
     </div>
 </nav>
-
 <div class="container-fluid">
+    <img th:src="@{${hotel.image.imageUrl}}">
+    <h1 th:text="${hotel.name}">
+    </h1>
+    <h2 th:text="${hotel.city}">
+    </h2>
 
 
-    <div class="container-xl">
-        <div class="row">
-            <h1>Trips</h1>
-        </div>
-
-        <div class="col-md-4 col-6 col-lg-3 mt-4 col"
-             style="margin: 0;display: flex;width: fit-content;flex-direction: row; height: available">
-            <div class="card" th:each="trip: ${trips}">
-                <div class="card" style="width: 18rem;">
-                    <img th:src="@{${trip.image.imageUrl}}"
-                         class="card-img-top" alt="moldova">
-                    <div class="card-body">
-
-                        <h5 class="card-title" th:text="${trip.name}"></h5>
-                        <b class="cart-text" th:text="${trip.price}"></b><b> $ </b><br>
-                        <a class="btn btn-primary" th:href="@{/trip/{id}(id=${trip.id})}">More details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 

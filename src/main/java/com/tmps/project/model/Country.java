@@ -14,11 +14,11 @@ public class Country {
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
-    private Long id;
+    protected Long id;
     @Column(nullable = false)
-    private String name;
+    protected String name;
     @Column(nullable = false)
-    private String currency;
+    protected String currency;
 
     public Country(Long id, String name, String currency) {
         this.id = id;

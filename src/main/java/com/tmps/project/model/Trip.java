@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Entity
@@ -21,13 +22,18 @@ public class Trip {
     private Double price;
     private Integer nrOfDays;
     private String description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id", nullable = false )
     private Hotel hotel;
     private Integer availablePlaces;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id", nullable = false )
     private Country country;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Image image;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    private List<Reservation> reservations;
 
     public Trip(String name, Double price, Integer nrOfDays, String description, Hotel hotel, Integer availablePlaces, Country country) {
         this.name = name;

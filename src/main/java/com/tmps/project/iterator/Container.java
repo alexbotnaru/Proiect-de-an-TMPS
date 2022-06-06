@@ -1,5 +1,7 @@
 package com.tmps.project.iterator;
 
+import com.tmps.project.model.Trip;
+
 public interface Container {
-    Iterator getIterator();
+    Iterator getIterator(Trip[] trips);
 }
